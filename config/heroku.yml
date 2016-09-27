@@ -1,0 +1,30 @@
+---
+staging:
+  app:
+    name: backstage-spree-jv
+    git_branch: develop
+  config_vars:
+  - BUILDPACK_URL: https://github.com/ddollar/heroku-buildpack-multi.git
+  addons: [
+    - heroku-postgresql:hobby-dev
+    - newrelic:wayne
+  ]
+  resources:
+    web:
+      count: 1
+      type: Free
+
+production:
+  app:
+    name: production-spree-jv
+    git_branch: master
+  config_vars:
+  - BUILDPACK_URL: https://github.com/ddollar/heroku-buildpack-multi.git
+  addons: [
+    - heroku-postgresql:hobby-dev
+    - newrelic:wayne
+  ]
+  resources:
+    web:
+      count: 1
+      type: Free
